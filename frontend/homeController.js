@@ -5,7 +5,6 @@ angular.module('toDoApp')
     $scope.newElement = "";
     $scope.newList = "";
     $scope.strikethrough = false;
-    $scope.noStrike = true;
 
     $http.get('http://localhost:2023/api/list').then(function (result) {
         $scope.todoList = result.data;
@@ -63,9 +62,7 @@ angular.module('toDoApp')
 
 
     var strike = function () {
-        $scope.strikethrough = true;
-        $scope.noStrike = false;
-        return;
+        return true;
     }
 
 
