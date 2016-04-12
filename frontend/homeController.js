@@ -4,21 +4,31 @@ angular.module('toDoApp')
     $scope.todoList;
     $scope.newElement = "";
     $scope.newList = "";
+    $scope.strikethrough = false;
+    $scope.noStrike = true;
 
     $http.get('http://localhost:2023/api/list').then(function (result) {
         $scope.todoList = result.data;
         console.log('i have received the results')
+        console.log(result.data)
     });
 
-    $scope.deleteListButton = function (index) {
-        console.log("List Deleted")
-        $scope.todoList.splice(index, 1);
-    }
+    //    $scope.deleteListButton = function (index) {
+    //        console.log("List Deleted")
+    //        $scope.todoList.splice(index, 1);
+    //        $http.delete('http://localhost:2023/api/list/:toDo_id').then(function (result) {
+    //            $scope.todoList = result.data;
+    //            console.log('i have received the results')
+    //        });
+    //    }
 
-    $scope.deleteItemButton = function (index) {
+    $scope.deleteItemButton = function (id, index) {
         //Make this works with node api
         console.log("Item Deleted")
-        $scope.todoList.elements.splice(index, 1);
+        $http.delete('http://localhost:2023/api/list/' + id).then(function (result) {
+            $scope.todoList.splice(index, 1);
+            console.log('i have deleted the item')
+        });
     }
 
     $scope.addItemButton = function () {
@@ -49,6 +59,13 @@ angular.module('toDoApp')
                 console.log('i have added the the new list')
             });
         }
+    }
+
+
+    var strike = function () {
+        $scope.strikethrough = true;
+        $scope.noStrike = false;
+        return;
     }
 
 

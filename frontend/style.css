@@ -1,22 +1,23 @@
 .title {
     font-size: 50px;
     font-family: cursive;
-    background-color: cornflowerblue;
     padding-left: 20px;
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 20px;
 }
+
+.page {
+    background-color: aliceblue;
+}
+
 .newlist {
     align-content: center;
 }
 .toDoList {
-    margin: 20px;
     color: black;
     float: left;
-    margin-top: 100px;
-    background-image: url("notepad.jpg");
-    width: 290px;
-    height: 55px;
-    padding-top: 50px;
-    padding-left: 50px;
+    padding-top: 40px;
     float: left;
 }
 
@@ -30,5 +31,19 @@
 }
 
 .newListInput i {
+    cursor: pointer;
+}
+
+.stylesTable {
+    margin: auto;
+    width: 30% !important;
+}
+
+.input {
+   padding-top: 20px;
+   text-align: center; 
+}
+
+.pointer {
     cursor: pointer;
 }

@@ -2,7 +2,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>To Do</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -18,22 +17,46 @@
     <script src="script.js"></script>
     <script src="homeController.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+     
+    
 </head>
+    
+   
 
-<body ng-app="toDoApp" ng-controller="homeController">
-    <div class="title"> To Do</div>
+<body ng-app="toDoApp" ng-controller="homeController" class="page">
     <br>
+    <!--
     <div class="newListInput">
         <input type="text" ng-model="newList" /><i class="fa fa-plus" ng-click="addListButton()"></i>
     </div>
+-->
+    
+    <h1 class="title">
+    To Do
+    </h1>
+    
+    <table class="table table-hover stylesTable">
+        <tbody>
+            <div class="toDoList">
+                <tr class="list" ng-repeat="item in todoList">
+                    <td> {{item.toDo}} <i class="fa fa-times pointer" ng-click="deleteItemButton(item._id, $index)"> </i>  <i class="fa fa-check pointer" ng-click="strike()"></i> </td>
+                </tr>
 
-    <div class="toDoList">
-        <h3 class="list" ng-repeat="name in todoList"> {{todoList[$index].name}} <i class="fa fa-times" ng-click="deleteListButton(toDoLists.$id)"> </i> <i
-            class="fa fa-plus" ng-click="addItemButton()"></i></h3>
 
+
+                <!--
         <div ng-repeat="element in toDolists.elements"> {{toDo.element}}
             <i class="fa fa-times" ng-click="deleteItemButton($index)"></i></div>
-        <input type="text" ng-model="newElement" />
+-->
+
+            </div>
+
+        </tbody>
+
+    </table>
+    <div class="input">
+        Add A Task: <input type="text" ng-model="newElement" /> <i class="fa fa-plus pointer" ng-click="addItemButton()"></i>
     </div>
 </body>
 
