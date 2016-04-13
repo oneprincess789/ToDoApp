@@ -6,7 +6,7 @@ angular.module('toDoApp')
     $scope.newList = "";
     $scope.strikethrough = false;
 
-    $http.get('http://localhost:2023/api/list').then(function (result) {
+    $http.get('/api/list').then(function (result) {
         $scope.todoList = result.data;
         console.log('i have received the results')
         console.log(result.data)
@@ -24,7 +24,7 @@ angular.module('toDoApp')
     $scope.deleteItemButton = function (id, index) {
         //Make this works with node api
         console.log("Item Deleted")
-        $http.delete('http://localhost:2023/api/list/' + id).then(function (result) {
+        $http.delete('/api/list/' + id).then(function (result) {
             $scope.todoList.splice(index, 1);
             console.log('i have deleted the item')
         });
@@ -38,7 +38,7 @@ angular.module('toDoApp')
             var data = {
                 toDo: $scope.newElement
             }
-            $http.post('http://localhost:2023/api/list', data).then(function (result) {
+            $http.post('/api/list', data).then(function (result) {
                 console.log(result);
                 console.log('i have added the element to the list')
             });
@@ -53,7 +53,7 @@ angular.module('toDoApp')
             var data = {
                 name: $scope.newList
             }
-            $http.post('http://localhost:2023/api/list', data).then(function (result) {
+            $http.post('/api/list', data).then(function (result) {
                 console.log(result);
                 console.log('i have added the the new list')
             });
