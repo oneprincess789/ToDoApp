@@ -40,7 +40,7 @@
         <tbody>
             <div class="toDoList">
                 <tr class="list" ng-repeat="item in todoList">
-                    <td ng-class="{ 'striked': strike }" > {{item.toDo}} <i class="fa fa-times pointer" ng-click="deleteItemButton(item._id, $index)"> </i>  <i class="fa fa-check pointer" ng-model="strike"></i> </td>
+                    <td ng-class="{ 'striked': strike }" > {{item.toDo}} <i class="fa fa-times pointer" ng-click="deleteItemButton(item._id, $index)"> </i>  <i class="fa fa-check pointer" ng-click="strike = !strike"></i> </td>
                 </tr>
 
 

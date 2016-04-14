@@ -4,7 +4,7 @@ angular.module('toDoApp')
     $scope.todoList;
     $scope.newElement = "";
     $scope.newList = "";
-    $scope.strikethrough = false;
+    $scope.strike = false;
 
     $http.get('/api/list').then(function (result) {
         $scope.todoList = result.data;
@@ -39,8 +39,8 @@ angular.module('toDoApp')
                 toDo: $scope.newElement
             }
             $http.post('/api/list', data).then(function (result) {
-                console.log(result);
-                console.log('i have added the element to the list')
+                $scope.todoList.push(data);
+                $scope.newElement = "";
             });
         }
     }
@@ -60,10 +60,6 @@ angular.module('toDoApp')
         }
     }
 
-
-    var strike = function () {
-        return true;
-    }
 
 
     }]);
